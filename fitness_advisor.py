@@ -4,13 +4,7 @@ import datetime
 
 class FitnessAdvisorAgent:
     def __init__(self, api_key: str, model: str = "deepseek-chat"):
-        """
-        Initialize the AI Fitness Advisor Agent
         
-        Args:
-            api_key: Your DeepSeek API key
-            model: Model to use (default: deepseek-chat)
-        """
         try:
             from openai import OpenAI
             self.client = OpenAI(
@@ -23,18 +17,7 @@ class FitnessAdvisorAgent:
     
     def analyze_health_status(self, heart_rate: int, sleep_hours: float, 
                             stress_level: int, previous_workout: str = None) -> Dict:
-        """
-        Analyze health metrics and provide workout recommendations
         
-        Args:
-            heart_rate: Resting heart rate (bpm)
-            sleep_hours: Hours slept last night
-            stress_level: Stress level (1-10 scale)
-            previous_workout: Previous workout type (optional)
-        
-        Returns:
-            Dictionary with analysis and recommendations
-        """
         
         # Prepare the prompt for the AI
         prompt = self._create_prompt(heart_rate, sleep_hours, stress_level, previous_workout)
